@@ -94,17 +94,17 @@ class VisitViewSerializer(generics.RetrieveUpdateDestroyAPIView):
 
 
 
-# class PerDay(View):
-#     def get(self, request):
-#         form = VisitPerDayForm()
-#         return render(request, 'per_day_visit.html', {'form': form})
-#
-#     def post(self, request):
-#         date_count = VisitPerDayForm(request.POST)
-#         if request.method == 'POST':
-#             form = VisitPerDayForm(request.POST)
-#             if form.is_valid():
-#                 date1 = form.cleaned_data['day']
-#                 date = str(date1)
-#                 date_count = Visit.objects.filter(day=date)
-#                 return render(request, 'per_day_visit.html', {'date_count': date_count})
+class PerDay(View):
+    def get(self, request):
+        form = VisitPerDayForm()
+        return render(request, 'per_day_visit.html', {'form': form})
+
+    def post(self, request):
+        date_count = VisitPerDayForm(request.POST)
+        if request.method == 'POST':
+            form = VisitPerDayForm(request.POST)
+            if form.is_valid():
+                date1 = form.cleaned_data['day']
+                date = str(date1)
+                date_count = Visit.objects.filter(day=date)
+                return render(request, 'per_day_visit.html', {'date_count': date_count})

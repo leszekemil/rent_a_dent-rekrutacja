@@ -31,8 +31,8 @@ class VisitForm(forms.ModelForm):
                    }
 
 
-# class VisitPerDayForm(forms.ModelForm):
-#     class Meta:
-#         model = Visit
-#         fields = ['day']
-#         widgets = {'day': DateInput()}
+class VisitPerDayForm(forms.ModelForm):
+    class Meta:
+        model = Visit
+        fields = ['day']
+        widgets = {'day': DateInput()}
