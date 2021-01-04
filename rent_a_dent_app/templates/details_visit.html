@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+<head>
+    <meta charset="UTF-8">
+    <title>Widok szczegółowy</title>
+</head>
+<div class="alfa">
+{% block rent_a_dent %}
+    <ul>
+        Data: {{ visit.day }} : {{ visit.hour }}
+    </ul>
+    <ul>
+        Pacjent: {{ visit.first_name }} {{ visit.last_name }}
+    </ul>
+    <ul>
+        Typ wizyty: {{ visit.type }}
+    </ul>
+{% endblock %}
+</div>
+
+

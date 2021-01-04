@@ -1,0 +1,49 @@
+<html>
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>RENT - A - DENT</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<div>
+    <div>
+        <ul class="menu-bar">
+            <li class="logo"><a href="/"><img src="{% static 'images/zablogo.png' %}"></a>
+            <li>
+                <a href="/visit/add/">REZERWACJA</a>
+            </li>
+            <li>
+                <a href="/visits/">LISTA WIZYT</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main_body">
+        {% block rent_a_dent %}
+        {% endblock %}
+
+        {% block log %}
+        {% endblock %}
+
+        {% block main %}
+        {% endblock %}
+    </div>
+    <div class="footer">
+        <div class="userpanel">
+            {% if user.is_authenticated %}
+                <span class="amount">USER:&nbsp
+                <img src="{% static 'images/user.png' %}" width=20px>
+                &nbsp{{ user }}</span>
+{#                <a href="{% url 'logout' %}">LOG-OUT</a>#}
+                {% if user.is_superuser %}
+{#                    <a href="{% url 'user_list' %}">USERS LIST</a>#}
+                {% endif %}
+            {% else %}
+{#                <a href="{% url 'myLoginView' %}"><span class="amount">LOG-IN</span></a>#}
+{#                <a href="{% url 'SingUpView' %}">CREATE ACCOUNT</a>#}
+            {% endif %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

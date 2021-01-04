@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block background %}
+    <style>
+        table, th, td {
+            border-collapse: collapse;
+        }
+        th {
+            color: darkgrey;
+        }
+        th, td {
+            padding: 5px;
+            text-align: left;
+        }
+    </style>
+{% endblock %}
+<div class="alfa">
+    {% block rent_a_dent %}
+        <a class="button1" href="/visit/add/">UMÓW WIZYTĘ</a>
+        <table class="tables" style="width:100%">
+            <tr>
+                <th>PACJENT</th>
+                <th>DATA</th>
+                <th>TYP</th>
+                <th>EDYCJA</th>
+            </tr>
+            <tr>
+                {% for i in visits %}
+                    <td>{{ i.last_name }} {{ i.first_name }}</td>
+                    <td>{{ i.day }},{{ i.hour }}</td>
+                    <td>{{ i.type }}</td>
+                    <td><a class="buttonminidelete" href="{{ i.del_url }}">X</a>
+                        <a class="buttonminiedit" href="{{ i.get_edit_url }}">EDIT</a>
+                        <a class="buttonmimore" href="{{ i.get_detail_url }}">...</a>
+                    </td>
+                    </tr>
+                {% endfor %}
+        </table>
+    {% endblock %}
+</div>
+</body>
+</html>

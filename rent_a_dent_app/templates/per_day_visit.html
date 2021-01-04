@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Umów wizytę</title>
+</head>
+<body>
+<div class="alfa">
+    {% block rent_a_dent %}
+        <form method="post">
+            {% csrf_token %}
+            <table class="form form-table">
+                {{ form }}
+                <tr>
+                    <td colspan="2">
+                        <button type="submit" class="btn btn-info right"> Submit</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        {{ date_count }}
+    {% endblock %}
+</div>
+</body>
+</html>
